@@ -5,6 +5,8 @@
 ## RESUMO:
 O projeto consiste em uma simulação por turno onde existe uma caça e de 5 a 10 presas. Ao iniciar o programa a simulação define locais aleatórios para o caçador e em seguida define um número aleatório de 5 a 10 e posiciona cada uma delas em uma posição não ainda ocupada. Ao pressionar espaço o jogador começa/pausa o "autoplay", modo no qual todas as entidades fazem seu movimento em turn automáticamente (primeiro o hunter e depois as presas). Ao invés de espaço pode se controlar a simulação apertando T para avançar apenas um turno da simulação. Quando a ultima presa morre, a simulação acaba.
 
+[LINK PARA APRESENTAÇÃO](https://www.canva.com/design/DAFgdbT2KnY/3NIsZdmHCuZm6C9iUKzUJQ/view?utm_content=DAFgdbT2KnY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 ## COMO FOI FEITO:
 
 O projeto foi feito em C# na Unity e é formado, basicamente por 7 objetos, são eles: o Caçador, a Presa, a Entidade, o GridManager, o GridObject, o GameManager e o HudManager. A seguir vou explicar como cada um deles se comporta e interage com as outras classes.
@@ -13,6 +15,9 @@ O projeto foi feito em C# na Unity e é formado, basicamente por 7 objetos, são
   - A classe Entity é uma classe base que é herdada pelo caçador e pela presa, nela se define as funções e variáveis comuns às duas entidades do jogo como, por exemplo, CheckAvailableMoves() que checa as posições de grid ao redor do objeto e determina quais posições são válidas para este ocupar e MoveRandom() que move ele aleatóriamente para uma posição já checada presente na sua lista (também definida nesta classe base) availableMoves.
   
 ## CAÇADOR:
+
+![HunterStateMachine](https://i.gyazo.com/7691e73926e4b7ed3b8a87b0e387a311.png "Máquina de Estados do Caçador.")
+
   - A classe caçador herda da classe base Entity e implementa algumas funções específicas do caçador, são elas:
   
       ```c#
@@ -36,6 +41,9 @@ O projeto foi feito em C# na Unity e é formado, basicamente por 7 objetos, são
       ```
 
 ## PRESA:
+
+![PreyStateMachine](https://i.gyazo.com/7822856b7925c0a1b0c3d3a6b26080e2.png "Máquina de Estados da Presa.")
+
   - A classe presa também herda da classe base Entity e tem algumas funções específicas, são elas:
   
     ```c#
